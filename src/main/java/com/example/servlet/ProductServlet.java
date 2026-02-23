@@ -174,7 +174,8 @@ public class ProductServlet extends HttpServlet {
 
     private JsonObjectBuilder productToJsonObject(Product p) {
         return Json.createObjectBuilder()
-                .add("id", p.id() != null ? p.id() : JsonValue.NULL)
+                .builder.add("id",
+                    p.id() != null ? p.id().longValue() : 0L);
                 .add("name", p.name())
                 .add("description", p.description())
                 .add("price", p.price())
