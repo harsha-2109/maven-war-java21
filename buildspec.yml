@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto21
+    commands:
+      - echo Installing Maven...
+      - mvn -version
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn clean package -DskipTests
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - target/*.war
+    - appspec.yml
+    - scripts/**/*
