@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+
+files:
+  - source: target/
+    destination: /opt/tomcat/webapps/
+
+hooks:
+  ApplicationStop:
+    - location: scripts/stop_tomcat.sh
+      timeout: 60
+      runas: root
+
+  AfterInstall:
+    - location: scripts/set_permissions.sh
+      timeout: 60
+      runas: root
+
+  ApplicationStart:
+    - location: scripts/start_tomcat.sh
+      timeout: 60
+      runas: root
