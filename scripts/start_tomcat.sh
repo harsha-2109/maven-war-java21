@@ -1,2 +1,2 @@
 #!/bin/bash
-systemctl start tomcat 
+/opt/tomcat/bin/startup.sh
