@@ -1,2 +1,2 @@
 #!/bin/bash
-systemctl stop tomcat || true
+/opt/tomcat/bin/shutdown.sh
