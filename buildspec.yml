@@ -5,20 +5,13 @@ phases:
     runtime-versions:
       java: corretto21
     commands:
-      - echo Installing Maven...
-      - mvn -version
-
+      - echo Installing dependencies
   build:
     commands:
-      - echo Build started on `date`
-      - mvn clean package -DskipTests
-
-  post_build:
-    commands:
-      - echo Build completed on `date`
+      - echo Building Maven project
+      - mvn clean package
 
 artifacts:
   files:
     - target/*.war
-    - appspec.yml
-    - scripts/**/*
+  discard-paths: yes
