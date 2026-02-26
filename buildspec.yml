@@ -14,4 +14,7 @@ phases:
 artifacts:
   files:
     - target/*.war
-  discard-paths: yes
+    - appspec.yml
+    - scripts/*
+  discard-paths: no
+ 
